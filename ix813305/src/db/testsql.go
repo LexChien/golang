@@ -1,4 +1,4 @@
-package main
+package db
 
 import (
 	"database/sql"
@@ -24,7 +24,7 @@ func checkError(err error) {
 	}
 }
 
-func sqlConnect(user string, password string) string {
+func SqlConnect(user string, password string) string {
 	var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
 
 	// Initialize connection object.
@@ -52,8 +52,10 @@ func sqlConnect(user string, password string) string {
 	fmt.Println("Reading data:")
 	for rows.Next() {
 		u := new(userInfo)
+
 		err := rows.Scan(&u.username, &u.id)
 		checkError(err)
+
 		b, err := json.Marshal(u)
 		if err != nil {
 			return fmt.Sprintf("Query failed,err:%v\n", err)

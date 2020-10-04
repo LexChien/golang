@@ -3,6 +3,8 @@ package main
 import (
 	"net/http"
 
+	db "./db"
+	server "./tcp"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,6 +14,7 @@ type msgJson struct {
 }
 
 func main() {
+	server.Startserver()
 	router := gin.Default()
 	router.GET("/home", home)
 	Group1 := router.Group("/getlist")
@@ -58,5 +61,5 @@ func jsonPost(c *gin.Context) {
 func birdDB(context *gin.Context) {
 	user := context.Param("user")
 	password := context.Param("password")
-	context.String(http.StatusOK, "%s", sqlConnect(user, password))
+	context.String(http.StatusOK, "%s", db.SqlConnect(user, password))
 }
