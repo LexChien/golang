@@ -38,13 +38,13 @@ func handleConn(c net.Conn) {
 		// 校驗
 		decodeData := make([]byte, len(Data))
 		for de, n := range Data {
-			decodeData[de] = n //^ baseValue[de]
+			decodeData[de] = n ^ baseValue[de]
 			de++
 		}
 
 		decEes := 0
 		hexst := ""
-		for i, ctn := range Data {
+		for i, ctn := range decodeData {
 			if i < 15 {
 				decEes = decEes + int(decodeData[i]^decodeData[i+1])
 			}
@@ -61,10 +61,12 @@ func handleConn(c net.Conn) {
 
 		fmt.Println("get : ", hexst, " test : ", hex.EncodeToString([]byte{p}), hex.EncodeToString([]byte{j}))
 		// Send a response back to person contacting us.
-		retrunData := "FAILED\n"
-		if p == Data[15] && j == Data[16] {
+		retrunData := "NG\n"
+		if p == decodeData[15] && j == decodeData[16] {
 			insertFile(hexst)
 			retrunData = "OK\n"
+		} else {
+			fmt.Println("get : ", hex.EncodeToString([]byte{decodeData[15]}), hex.EncodeToString([]byte{decodeData[16]}), " test : ", hex.EncodeToString([]byte{p}), hex.EncodeToString([]byte{j}))
 		}
 		_, werr := c.Write([]byte(retrunData))
 		if werr != nil {
