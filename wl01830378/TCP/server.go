@@ -31,29 +31,33 @@ func handleConn(c net.Conn) {
 		if err != nil {
 			fmt.Println(err)
 			break
+		} else if recvlen != 17 {
+			fmt.Println("Receive array is error. Lenth = ", recvlen)
+			break
 		}
 		// fmt.Println("Get : ", buf[:recvlen])
-		Data := buf[:recvlen]
+		decodeData := buf[:recvlen]
 
 		// 校驗
-		decodeData := make([]byte, len(Data))
-		for de, n := range Data {
+		// decodeData := make([]byte, len(Data))
+		for de, n := range decodeData {
 			decodeData[de] = n ^ baseValue[de]
-			de++
 		}
 
 		decEes := 0
 		hexst := ""
 		for i, ctn := range decodeData {
-			if i < 15 {
-				decEes = decEes + int(decodeData[i]^decodeData[i+1])
+			if i < 14 {
+				add := decodeData[i] ^ decodeData[i+1]
+				// fmt.Println(i, " decEes ", decEes, " + ", int(add))
+				decEes = decEes + int(add)
+				// fmt.Println(i, " hex ", hex.EncodeToString([]byte{add}), " sum ", decEes)
 			}
 			if hexst != "" {
 				hexst = hexst + " " + strings.ToUpper(hex.EncodeToString([]byte{ctn}))
 			} else {
 				hexst = strings.ToUpper(hex.EncodeToString([]byte{ctn}))
 			}
-			i++
 		}
 
 		p := byte(decEes / 256)
@@ -63,10 +67,10 @@ func handleConn(c net.Conn) {
 		// Send a response back to person contacting us.
 		retrunData := "NG\n"
 		if p == decodeData[15] && j == decodeData[16] {
-			insertFile(hexst)
+			// insertFile(hexst)
 			retrunData = "OK\n"
 		} else {
-			fmt.Println("get : ", hex.EncodeToString([]byte{decodeData[15]}), hex.EncodeToString([]byte{decodeData[16]}), " test : ", hex.EncodeToString([]byte{p}), hex.EncodeToString([]byte{j}))
+			fmt.Println("error get : ", hex.EncodeToString([]byte{decodeData[15]}), hex.EncodeToString([]byte{decodeData[16]}), " test : ", hex.EncodeToString([]byte{p}), hex.EncodeToString([]byte{j}))
 		}
 		_, werr := c.Write([]byte(retrunData))
 		if werr != nil {
