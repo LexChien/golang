@@ -29,7 +29,9 @@ func handleConn(c net.Conn) {
 		recvlen, err := c.Read(buf)
 
 		if err != nil {
-			fmt.Println(err)
+			if err.Error() != "EOF" {
+				fmt.Println(err)
+			}
 			break
 		} else if recvlen != 17 {
 			fmt.Println("Receive array is error. Lenth = ", recvlen)
@@ -67,7 +69,7 @@ func handleConn(c net.Conn) {
 		// Send a response back to person contacting us.
 		retrunData := "NG\n"
 		if p == decodeData[15] && j == decodeData[16] {
-			// insertFile(hexst)
+			insertFile(hexst)
 			retrunData = "OK\n"
 		} else {
 			fmt.Println("error get : ", hex.EncodeToString([]byte{decodeData[15]}), hex.EncodeToString([]byte{decodeData[16]}), " test : ", hex.EncodeToString([]byte{p}), hex.EncodeToString([]byte{j}))
