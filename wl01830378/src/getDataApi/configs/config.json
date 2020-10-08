@@ -1,0 +1,8 @@
+{
+    "addr" : "",
+	"port" : 5000,
+	"servAddr" : "127.0.0.1",
+	"servPort" : 5009,
+	"connTime" : 10,
+	"reconnTime" : 60
+}
