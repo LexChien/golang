@@ -1,10 +1,13 @@
 package tcp
 
 import (
+	"bytes"
 	"encoding/hex"
 	"fmt"
 	"net"
 	"os"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -25,11 +28,18 @@ func Startserver() {
 
 	}
 }
+
+var baseValue = []byte{
+	0x34, 0xdc, 0x86, 0xa3, 0x65, 0xda, 0x5d, 0x79, 0xc1, 0xf3, 0x9e, 0x1f, 0x45, 0x78, 0x99, 0x60, 0x89,
+}
+var num int = 0
+
 func handleConnection(conn net.Conn) {
 	remoteAddr := conn.RemoteAddr().String()
 	Log("Client connected from: " + remoteAddr)
-	buffer := make([]byte, 2048)
+
 	for {
+		buffer := make([]byte, 2048)
 		// Read the incoming connection into the buffer.
 		reqLen, err := conn.Read(buffer)
 		if err != nil {
@@ -43,38 +53,72 @@ func handleConnection(conn net.Conn) {
 			}
 		}
 		// Send a response back to person contacting us.
-
+		num++
 		Data := (buffer[:reqLen])
-		messnager := make(chan byte)
+		// messnager := make(chan byte)
 
 		Log("receive data length:", reqLen)
-		encodedStr := hex.EncodeToString(Data)
-		Log(remoteAddr, "receive data string:\n", encodedStr)
-		for i, r := range Data {
-			Log(i, r, string(r))
-		}
-		i := 0
-		res := 0
-		//判斷數據是否錯誤
-		for i <= 14 {
-			// fmt.Println(i)
-			res = res + int(Data[i]^Data[i+1])
+		// encodedStr := hex.EncodeToString(Data)
+		// Log(remoteAddr, "receive data string:\n", encodedStr)
+		hexst := ""
+		for i, ctn := range baseValue {
+			if hexst != "" {
+				hexst = hexst + " " + strings.ToUpper(hex.EncodeToString([]byte{ctn}))
+			} else {
+				hexst = strings.ToUpper(hex.EncodeToString([]byte{ctn}))
+			}
 			i++
 		}
-		Log("res : ", res)
+		// Log("baseValue :", hexst)
+		hexst = ""
+		for i, ctn := range Data {
+			if hexst != "" {
+				hexst = hexst + " " + strings.ToUpper(hex.EncodeToString([]byte{ctn}))
+			} else {
+				hexst = strings.ToUpper(hex.EncodeToString([]byte{ctn}))
+			}
+			i++
+		}
+		Log("Data :", hexst)
+		decodeData := make([]byte, len(Data))
+		i := 0
+		hexst = ""
+		//解密
+		for i < 17 {
+			// Log("baseValue:", i, baseValue[i], Data[i])
+			decodeData[i] = Data[i] ^ baseValue[i]
+			// Log("decodeData:", i, decodeData[i])
+			hexst = hexst + " " + strings.ToUpper(hex.EncodeToString([]byte{decodeData[i]}))
+			i++
+		}
+		Log("hexst :", hexst)
+		i = 0
+		res := 0
+		//判斷數據是否錯誤
+		for i < 14 {
+			// fmt.Println(i)
+			w := decodeData[i] ^ decodeData[i+1]
+			res = res + int(w)
+			// Log(i, res, decodeData[i])
+			i++
+		}
 		p := byte(res / 256)
 		j := byte(res % 256)
-		Log(p, Data[15], j, Data[16])
-		if p == Data[15] && j == Data[16] {
-			conn.Write([]byte("data ok.\n"))
+		Log("res : ", res, p, decodeData[15], j, decodeData[16])
+		Log("count : ", num)
+		if p == decodeData[15] && j == decodeData[16] {
+			msg := bytes.NewBufferString("data ok - ")
+			msg.WriteString(strconv.Itoa(num))
+			conn.Write([]byte(msg.String()))
 		} else {
 			conn.Write([]byte("data error.\n"))
+			conn.Close()
 		}
 
-		//心跳計時
-		go HeartBeating(conn, messnager, 300)
-		//檢測每次Client是否有數據傳來
-		go GravelChannel(Data, messnager)
+		// //心跳計時
+		// go HeartBeating(conn, messnager, 300)
+		// //檢測每次Client是否有數據傳來
+		// go GravelChannel(Data, messnager)
 	}
 
 }

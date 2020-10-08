@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>flv.js demo</title>
+    <style>
+        .mainContainer {
+    display: block;
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.urlInput {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.centeredVideo {
+    display: block;
+    width: 100%;
+    height: 576px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+.controls {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+    </style>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <video id="videoElement" class="centeredVideo" controls autoplay width="1024" height="576">Your browser is too old which doesn't support HTML5 video.</video>
+    </div>
+    <br>
+    <div class="controls">
+        <form>
+            視頻IP <input style="width:200px" value="http://127.0.0.1:7001/live/live.flv" type="text" name="ip"id='ip' />
+            <!-- 檔名<input style="width:100px" value="movie" type="text" name="flvname" id='flvname' /> -->
+        </form>
+        <button onclick="flv_load()">連線</button>
+        <br>
+        <button onclick="flv_start()">開始</button>
+        <button onclick="flv_pause()">暫停</button>
+        <!-- <button onclick="flv_destroy()">停止</button> -->
+        <!-- <input style="width:100px" type="text" name="seekpoint" />
+        <button onclick="flv_seekto()">跳轉</button> -->
+    </div>
+    <script src="js/flv.min.js"></script>
+    <script>
+        var player = document.getElementById('videoElement');
+         function flv_load() {
+            player = document.getElementById('videoElement');
+            var ip = document.getElementById("ip").value;
+            // var flvname = document.getElementById("flvname").value;
+            // var api = 'http://'+ip+"/live/"+flvname+".flv";
+            console.log(ip);
+            
+            if (flvjs.isSupported()) {
+            var flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                isLive: true,
+                url: ip//'http://192.168.0.162:7001/live/live.flv'
+            },{
+            enableWorker: true,
+            enableStashBuffer: false,
+            stashInitialSize: 120 // 默认：384KB
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load(); //加载
+            }
+         }
+       
+
+        function flv_start() {
+            player.currentTime = player.buffered.end(0) - 1;
+            player.play();
+        }
+
+        function flv_pause() {
+            player.pause();
+        }
+
+        // function flv_destroy() {
+        //     player.pause();
+        //     player.unload();
+        //     player.detachMediaElement();
+        //     player.destroy();
+        //     player = null;
+        // }
+
+        // function flv_seekto() {
+        //     player.currentTime = parseFloat(document.getElementsByName('seekpoint')[0].value);
+        // }
+    </script>
+</body>
+
+</html>
