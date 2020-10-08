@@ -24,13 +24,15 @@ var baseValue = []byte{
 func handleConn(c net.Conn) {
 	defer c.Close()
 
-	buf := make([]byte, 2048)
 	for {
+		buf := make([]byte, 2048)
 		recvlen, err := c.Read(buf)
 
 		if err != nil {
 			if err.Error() != "EOF" {
 				fmt.Println(err)
+			} else {
+				fmt.Println("斷線.", c.RemoteAddr())
 			}
 			break
 		} else if recvlen != 17 {
@@ -41,7 +43,6 @@ func handleConn(c net.Conn) {
 		decodeData := buf[:recvlen]
 
 		// 校驗
-		// decodeData := make([]byte, len(Data))
 		for de, n := range decodeData {
 			decodeData[de] = n ^ baseValue[de]
 		}
@@ -99,7 +100,7 @@ func main() {
 			break
 		}
 
-		fmt.Println("連線成功.")
+		fmt.Println("連線成功.", c.RemoteAddr())
 		// start a new goroutine to handle
 		// the new connection.
 		go handleConn(c)
