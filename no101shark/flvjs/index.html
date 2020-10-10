@@ -1,0 +1,18 @@
+<h1>test</h1>
+<video id="videoElement" muted></video>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flv.js/1.4.2/flv.min.js"></script>
+<script>
+    if(flvjs.isSupported()){
+    //..npm install --save flv.js
+    console.log("12345");
+    var videoElement = document.getElementById('videoElement');
+            var flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: 'http://127.0.0.1:7001/live/movie.flv'
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load();
+            flvPlayer.play();
+    }
+</script>
