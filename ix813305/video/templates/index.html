@@ -67,20 +67,26 @@
             // var flvname = document.getElementById("flvname").value;
             // var api = 'http://'+ip+"/live/"+flvname+".flv";
             console.log(ip);
-            
+            var WhatSystem = navigator.userAgent;
             if (flvjs.isSupported()) {
-            var flvPlayer = flvjs.createPlayer({
-                type: 'flv',
-                isLive: true,
-                url: ip//'http://192.168.0.162:7001/live/live.flv'
-            },{
-            enableWorker: true,
-            enableStashBuffer: false,
-            stashInitialSize: 120 // 默认：384KB
-            });
-            flvPlayer.attachMediaElement(videoElement);
-            flvPlayer.load(); //加载
+                if(WhatSystem.match(WhatSystem.match(/(iphone|ipad|ipod);?/i))){
+
+                }else{
+                    var flvPlayer = flvjs.createPlayer({
+                    type: 'flv',
+                    isLive: true,
+                    url: ip//'http://127.0.0.1:7001/live/movie.flv'
+                    },{
+                        enableWorker: true,
+                        enableStashBuffer: false,
+                        stashInitialSize: 120 // 默认：384KB
+                    });
+           
+                }
+                flvPlayer.attachMediaElement(videoElement);
+                flvPlayer.load(); //加载
             }
+           
          }
        
 
