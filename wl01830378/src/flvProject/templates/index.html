@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>flv.js demo</title>
+    <style>
+        .mainContainer {
+        display: block;
+        width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        .centeredVideo {
+            display: block;
+            width: 100%;
+            height: 576px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: auto;
+        }
+
+        .controls {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="js/flv.min.js"></script>
+    <div class="mainContainer">
+        <video id="videoElement" muted class="centeredVideo" width="1024" height="576">Your browser is too old which doesn't support HTML5 video.</video>
+    </div>
+    <br>
+    <div class="controls">
+        <button onclick="changevedio()">change</button>
+    </div>
+    <script>
+        var player;
+        var flvPlayer;
+        if (flvjs.isSupported()) {
+            player = document.getElementById('videoElement');
+            start();
+        }
+
+        function start() {
+            flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                isLive: true,
+                hasAudio:false,
+                url: 'http://127.0.0.1:7001/live/movie.flv'
+            });
+            flvPlayer.attachMediaElement(player);
+            flvPlayer.load();
+            flvPlayer.play();
+            // console.log("!!!!!!!!!!!!!");
+        }
+
+        function changevedio() {
+            flvPlayer.pause();
+            flvPlayer.unload();
+            flvPlayer.detachMediaElement();
+            flvPlayer.destroy();
+            flvPlayer = null;
+            start();
+        }
+    </script>
+</body>
+
+</html>
