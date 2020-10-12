@@ -1,25 +1,94 @@
-<script src="js/flv.min.js"></script>
-<video id="videoElement" muted></video>
-<script>
-    if (flvjs.isSupported()) {
-        var flv_type = 'flv';
-        var video_url = 'http://127.0.0.1:7001/live/movie.flv';
-        // var u = navigator.userAgent;
-        // if (u.indexOf("iPhone") > -1 || u.indexOf("iOS") > -1) {
-        //     flv_type = 'hls';
-        //     video_url = 'http://192.168.0.102:7002/live/movie.m3u8';
-        // }
-        // flv_type = 'flv';
-        // video_url = 'http://192.168.0.102:7002/live/movie.m3u8';
-        console.log(flv_type);
-        console.log(video_url);
-        var videoElement = document.getElementById('videoElement');
-        var flvPlayer = flvjs.createPlayer({
-            type: flv_type,
-            url: video_url
-        });
-        flvPlayer.attachMediaElement(videoElement);
-        flvPlayer.load();
-        flvPlayer.play();
-    }
-</script>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+        <title></title>
+        <!-- <style>
+            .myButton {
+                box-shadow:inset 0px 1px 3px 0px #91b8b3;
+                background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+                background-color:#768d87;
+                border-radius:5px;
+                border:1px solid #566963;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Arial;
+                font-size:15px;
+                font-weight:bold;
+                padding:11px 23px;
+                text-decoration:none;
+                text-shadow:0px -1px 0px #2b665e;
+            }
+            .myButton:hover {
+                background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+                background-color:#6c7c7c;
+            }
+            .myButton:active {
+                position:relative;
+                top:1px;
+            }
+        </style> -->
+	</head>
+
+	<body>
+        <script src="js/flv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>  
+        <video id="video" controls autoplay width="600" height="400" playsinline="" webkit-playsinline="" muted></video>
+        <br>
+        <!-- <button class="myButton" onclick="play()"> Load </button> -->
+        <script>
+            var video = document.getElementById('video');
+            var video_url = "";
+            var addr = {{.addr }};
+            var movie = {{.movie }};
+            console.log(addr);
+            console.log(movie);
+            if (flvjs.isSupported()) {
+                video_url = 'http://'+addr+':7001/live/'+movie+'.flv';
+                var flvPlayer = flvjs.createPlayer({
+                    type: 'flv',
+                    url: video_url
+                },
+                {
+                    enableWorker: true,
+                    enableStashBuffer: false,
+                    stashInitialSize: 120 // 默认：384KB
+                });
+                flvPlayer.attachMediaElement(video);
+                flvPlayer.load();
+                flvPlayer.play();
+            }
+            else{
+                video_url = 'http://'+addr+':7002/live/'+movie+'.m3u8';
+                // video_url = 'http://192.168.0.162:7002/live/movie.m3u8';
+                if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = video_url;
+                    video.addEventListener('loadedmetadata', function() {
+                        video.play();
+                    });
+                } else if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(video_url);
+                    hls.attachMedia(video);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        video.play();
+                    });
+                            
+                }else{
+                    alert("無法撥放");
+                }
+            }
+            console.log("video_url ->");
+            console.log(video_url);
+                
+                
+            function play() {
+                video.play();
+            }
+        </script>
+		
+	</body>
+
+</html>
