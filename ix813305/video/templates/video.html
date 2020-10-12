@@ -63,12 +63,8 @@
             else{
                 video_url = 'http://'+addr+':7002/live/'+movie+'.m3u8';
                 // video_url = 'http://192.168.0.162:7002/live/movie.m3u8';
-                if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    video.src = video_url;
-                    video.addEventListener('loadedmetadata', function() {
-                        video.play();
-                    });
-                } else if (Hls.isSupported()) {
+                if (Hls.isSupported()) {
+                    // alert("1");
                     var hls = new Hls();
                     hls.loadSource(video_url);
                     hls.attachMedia(video);
@@ -76,13 +72,30 @@
                         video.play();
                     });
                             
-                }else{
+                }
+                else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    //判斷是否為 ios
+                    // alert("2");
+                    video.src = video_url;
+                    video.addEventListener('loadedmetadata', function() {
+                        video.play();
+                    });
+                } else{
                     alert("無法撥放");
                 }
             }
             console.log("video_url ->");
             console.log(video_url);
-                
+            setInterval(() => {
+            if (!video.buffered.length) {
+                return;
+            }
+            let end = video.buffered.end(0);
+            let diff = end - video.currentTime;
+            if (diff >= 1.5) {
+                video.currentTime = end;
+            }
+            }, 3000);
                 
             function play() {
                 video.play();
