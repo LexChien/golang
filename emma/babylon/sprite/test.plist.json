@@ -1,0 +1,44 @@
+{"frames": [
+
+{
+	"filename": "desktop_bg_b01.png",
+	"frame": {"x":1,"y":723,"w":1128,"h":278},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1128,"h":278},
+	"sourceSize": {"w":1128,"h":278}
+},
+{
+	"filename": "desktop_bg_b02.png",
+	"frame": {"x":1,"y":1003,"w":1128,"h":278},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1128,"h":278},
+	"sourceSize": {"w":1128,"h":278}
+},
+{
+	"filename": "UI_CHOOSE_bg.jpg",
+	"frame": {"x":1,"y":1,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720}
+},
+{
+	"filename": "UI_CHOOSE_bg_02.png",
+	"frame": {"x":1,"y":1283,"w":1280,"h":112},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":112},
+	"sourceSize": {"w":1280,"h":112}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "test.plist.png",
+	"format": "RGBA8888",
+	"size": {"w":1282,"h":1396},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:40b33c2050b7046463abdf770dc4a043:e89b2549bb5bc8c03ed8baf82776beff:dccb17760b9a11cc56be5701d7ca0bde$"
+}
+}
