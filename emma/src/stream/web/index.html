@@ -9,35 +9,55 @@
 
 <body>
     <div class="mainContainer">
-        <video id="video" controls autoplay width="1024" height="576"></video>
+        <video id="video" controls autoplay width="1024" height="567" playsinline="" webkit-playsinline=""
+            muted></video>
     </div>
     <br>
-    <div>
+    <!-- <div>
         <button onclick="flv_start()">開始</button>
         <button onclick="flv_pause()">暫停</button>
-    </div>
-    <script src="js/flv.min.js">
-    // 此文件为编译后的文件
-    </script>
+    </div> -->
+    <script src="js/flv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
         var player = document.getElementById('video');
         if (flvjs.isSupported()) {
+            console.log('使用FLV格式');
             var flvPlayer = flvjs.createPlayer({
                 type: 'flv',
                 "isLive": true,
-                url: 'http://127.0.0.1:7001/live/movie.flv',
+                url: 'http://192.168.0.188:7001/live/movie.flv',
             });
             flvPlayer.attachMediaElement(video);
             flvPlayer.load(); //加载
-            flv_start();
+            flvPlayer.play();
         }
-        function flv_start() {
-            player.currentTime = player.buffered.end(0) - 0.1;
-            player.play();
+        else if (Hls.isSupported()) {
+            console.log('使用HLS格式');
+            var hls = new Hls();
+            hls.loadSource('http://192.168.0.188:7002/live/movie.m3u8');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                video.play();
+            });
         }
-        function flv_pause() {
-            player.pause();
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            console.log('IOS 使用HLS格式');
+            video.src = 'http://192.168.0.188:7002/live/movie.m3u8';
+            video.addEventListener('loadedmetadata', function () {
+                video.play();
+            });
         }
+        else {
+            console.error('格式不對 無法撥放');
+        }
+        // function flv_start() {
+        //     // player.currentTime = player.buffered.end(0)-0.1;
+        //     player.play();
+        // }
+        // function flv_pause() {
+        //     player.pause();
+        // }
     </script>
 </body>
 
