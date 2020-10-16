@@ -1,0 +1,68 @@
+
+  <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flv.js/1.4.2/flv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>  
+
+
+  <div id="theater">
+    <video id="videoElement" muted playsinline="" webkit-playsinline="" autoplay="true" controls="false" style="display:none;"></video>
+    <canvas id="canvas" width="1280" height="720"></canvas>
+    <br>
+    <h1>text</h1>
+  <script>
+      //ios 實現自動撥放 playsinline="" webkit-playsinline="" autoplay="true" muted
+            $(function() {
+                if(flvjs.isSupported()){
+                    var url = 'http://192.168.0.183:7001/live/movie.flv';
+                    //電腦ip 192.168.0.183
+                    var videoElement = document.getElementById('videoElement');
+                    var flvPlayer = flvjs.createPlayer({
+                        type: 'flv',
+                        url:  url
+                    });
+                    flvPlayer.attachMediaElement(videoElement);
+                    flvPlayer.load();
+                    flvPlayer.play();
+                    
+                }else{
+                    var video = document.getElementById('videoElement');
+                    var url = 'http://192.168.0.183:7002/live/movie.m3u8';
+
+                    if (Hls.isSupported()) {
+
+                        var hls = new Hls();
+                        hls.loadSource(url);
+                        hls.attachMedia(video);
+                        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                            video.play();
+                        });
+                                
+                        }else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    
+                        video.src = url;
+                        video.addEventListener('loadedmetadata', function() {
+                            video.play();
+                        });
+                    } else{
+                        alert("X");
+                    }
+                }
+                // 畫布
+                    var canvas = document.getElementById('canvas');
+                    var ctx = canvas.getContext('2d');
+                    var video = document.getElementById('videoElement');
+
+                    video.addEventListener('play', function() {
+                            var $this = this; 
+                            (function loop() {
+                            if (!$this.paused && !$this.ended) {
+                                ctx.drawImage($this, 0, 0);
+                                setTimeout(loop, 1000 / 30); 
+                                // 每秒執行30次function loop  i.e. 30fps
+                            }
+                        })();
+                    }, 0);
+                });
+        
+      
+  </script>
