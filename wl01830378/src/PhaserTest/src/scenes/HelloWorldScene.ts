@@ -78,7 +78,7 @@ export default class HelloWorldScene extends Phaser.Scene {
         if (!this.stream.isPlaying)
             this.stream.open(this);
         else
-            this.stream.close(this);
+            this.stream.close();
         // this.btn.setTint(0xff0000);
     }
 }
