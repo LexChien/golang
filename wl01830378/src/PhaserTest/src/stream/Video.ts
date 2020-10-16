@@ -21,7 +21,7 @@ export default class Video {
         }
     }
 
-    close(scene: Phaser.Scene) {
+    close() {
         this.flvPlayer.pause();
         this.flvPlayer.unload();
         this.flvPlayer.detachMediaElement();
