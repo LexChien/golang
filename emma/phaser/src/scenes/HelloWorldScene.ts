@@ -15,7 +15,6 @@ export default class HelloWorldScene extends Phaser.Scene {
         this.load.image('firebarld', 'sprite/HHA_firebarld_fx01.png');
         this.load.multiatlas('spr', 'sprite/test.json', 'sprite'); //命名/JSON文件/圖片路徑
         this.load.multiatlas('fish01', 'sprite/fish01.json', 'sprite');
-        this.load.scenePlugin('rexuiplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexuiplugin.min.js', 'rexUI', 'rexUI');
     }
 
     create() {
@@ -27,12 +26,13 @@ export default class HelloWorldScene extends Phaser.Scene {
         //高亮圖
         this.add.image(1040, 170, 'firebarld');
         this.add.image(1040, 540, 'firebarld').setBlendMode(Phaser.BlendModes.SCREEN);
-        //未拉深
+
+        //未拉深(直接更改大小)
         let nine_normal = this.add.image(640, 340, 'nine');
         // nine_normal.scaleX = 1;
         // nine_normal.scaleY = 2;
         nine_normal.displayHeight = 400;
-        //九宮格
+        //九宮格(插件)
         this.add.nineslice(
             210, 110,   // this is the starting x/y location
             340, 440,   // the width and height of your object
@@ -59,23 +59,19 @@ export default class HelloWorldScene extends Phaser.Scene {
 
         //序列動畫
         this.anims.create({
-            key: 'swim01',
-            frames: this.anims.generateFrameNames('fish01', { start: 1, end: 14, prefix: 'HHA_020_a_', suffix: '.png' }),
-            frameRate: 10,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'swim02',
+            key: 'swim',
             frames: this.anims.generateFrameNames('fish01', { start: 1, end: 14, prefix: 'HHA_025_a_', suffix: '.png' }),
-            // frameRate: 20,
+            frameRate: 24,
             repeat: -1
         });
-        let fish03 = this.add.sprite(400, 400, 'fish01');
-        fish03.play('swim02');
+        let fish03 = this.add.sprite(800, 400, 'fish01');
+        fish03.play('swim');
 
-        //UI
-        var background = this.add.sprite(200, 500, 'spr', 'desktop_bg_b01.png').setScale(0.2);
-        var background2 = this.add.sprite(200, 600, 'spr', 'desktop_bg_b01.png').setScale(0.2);
+        //Button
+        var background = this.add.sprite(300, 350, 'spr', 'desktop_bg_b01.png').setScale(0.3);
+        var background2 = this.add.sprite(300, 450, 'spr', 'desktop_bg_b01.png').setScale(0.3);
+        var txt = this.add.text(300, 350, "點我看影片", { font: "30px Arial", fill: "#FFFFFF",align: 'center', });
+        txt.setOrigin(0.5).setStroke("000000", 3);
         var buttons = this.rexUI.add.buttons({
             // x:500,y:500,width:300,height:300,
             // background: background,
@@ -86,7 +82,13 @@ export default class HelloWorldScene extends Phaser.Scene {
             },
         })
         buttons.on('button.click', (button, index, pointer, event) => {
-            console.log('按下下');
+            this.scene.start('video');
+        });
+        buttons.on('button.over', (button, index, pointer, event) => {
+            txt.setScale(1.3);
+        })
+        buttons.on('button.out', (button, index, pointer, event) => {
+            txt.setScale(1);
         })
 
         var buttons02 = new Buttons(this, {
@@ -97,14 +99,15 @@ export default class HelloWorldScene extends Phaser.Scene {
         buttons02.on('button.click', (button, index, pointer, event) => {
             console.log('按下哈哈');
         })
+        
     }
 
     update() {
-        this.con++;
-        if (this.con == 100) {
-            console.log('撥放');
-            // this.fish.play('swim',true);
-        }
+        // this.con++;
+        // if (this.con == 100) {
+        //     console.log('撥放');
+        //     // this.fish.play('swim',true);
+        // }
     }
 
     Ondown() {
