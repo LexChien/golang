@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 import { Buttons } from 'phaser3-rex-plugins/templates/ui/ui-components.js';
 import NinePatch from 'phaser3-rex-plugins/plugins/ninepatch.js';
+import Video from '~/stream/video';
 
 export default class HelloWorldScene extends Phaser.Scene {
     constructor() {
