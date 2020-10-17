@@ -6,6 +6,8 @@ export default class Video {
     private player: any;
     private interval: integer = 0;
     public isPlaying: boolean = false;
+    private static videoIP: string = 'http://192.168.0.33';
+    private static appName: string = 'live';
 
     open(scene: Phaser.Scene) {
         if (this.video == undefined || this.video == null) {
@@ -13,11 +15,13 @@ export default class Video {
             this.video.muted = true;
             this.video.width = 512;
             this.video.height = 288;
+            this.video.playsinline = "";
+            this.video.setAttribute('webkit-playsinline', '');
             scene.add.dom(1280 / 2, 720 / 2, this.video);
             console.log(this.video);
         }
 
-        this.startVideo('http://192.168.0.158:7001/live/movie.flv');
+        this.startVideo('movie');
     }
 
     close() {
@@ -30,7 +34,7 @@ export default class Video {
         clearInterval(this.interval);
     }
 
-    startVideo(videoUrl: string) {
+    startVideo(room: string) {
         if (!this.isPlaying) {
             this.isPlaying = true;
             if (flvjs.isSupported()) {
@@ -38,7 +42,7 @@ export default class Video {
                     type: 'flv',
                     isLive: true,
                     hasAudio: false,
-                    url: videoUrl
+                    url: Video.videoIP + ':' + 7001 + '/' + Video.appName + '/' + room + '.flv'
                 }, {
                     enableStashBuffer: false
                 });
@@ -48,15 +52,12 @@ export default class Video {
                 console.log("!!!!!startVideo!!!!!");
             }
             else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
-                //判斷是否為 ios
-                // alert("2");
-                this.video.src = videoUrl;
+                this.video.src = Video.videoIP + ':' + 7002 + '/' + Video.appName + '/' + room + '.m3u8';
                 this.video.addEventListener('loadedmetadata', this.playVideo.bind(this, this.video));
             }
             else if (hlsjs.isSupported()) {
-                // alert("1");
                 var hls = new hlsjs();
-                hls.loadSource(videoUrl);
+                hls.loadSource(Video.videoIP + ':' + 7002 + '/' + Video.appName + '/' + room + '.m3u8');
                 hls.attachMedia(this.video);
                 hls.on(hlsjs.Events.MANIFEST_PARSED, this.playVideo.bind(this, this.video));
             }
