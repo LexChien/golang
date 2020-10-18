@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>播放</title>
+</head>
+
+<body>
+    <video id="movie" width="600" height="400" controls autoplay>
+        <!-- <source src="../video/"+{{.filename }} /> -->
+    </video>
+
+    <script src="js/flv.min.js"></script>
+    <script type="text/javascript">
+        var fileName = {{.filename }}
+        console.log(fileName)
+        const op = document.createElement('source');
+        const name = "../video/"+{{.filename }}
+        op.setAttribute('src', name);
+        document.querySelector('#movie').appendChild(op);
+    </script>
+</body>

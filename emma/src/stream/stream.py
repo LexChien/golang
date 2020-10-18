@@ -17,20 +17,14 @@ last_time = 5  # 每段長度(秒)
 delay_time = 2  # 間隔長度(秒)
 
 # 使用 XVID 編碼
-# fourcc_flv = cv.VideoWriter_fourcc('F', 'L', 'V', '1') #該引數是Flash視訊，檔名字尾為.flv
-fourcc_avi = cv.VideoWriter_fourcc(*'mp4v')
+# fourcc = cv.VideoWriter_fourcc(*'mp4v')
+fourcc = cv.VideoWriter_fourcc(*'X264')
 
 # 建立 VideoWriter 物件，輸出影片至 video/movie.flv
 # FPS 值為 30.0，解析度為 640x360
-# out_flv = cv.VideoWriter('video/movie.flv', fourcc_flv, 30, (640, 360))
-# out = cv.VideoWriter('video/movie.mp4', fourcc_avi, fps, size)
+# out = cv.VideoWriter('video/movie.mp4', fourcc, fps, size)
 
-
-# def thread(t):
-#     time.sleep(t)
-#     write_flag += write_flag
-
-def thread2():
+def thread():
     print('開啟線程')
     global write_flag
     time.sleep(last_time)
@@ -44,8 +38,8 @@ while(cap.isOpened()):
         if (write_flag == 0):
             write_flag = 1
             save_name = video_name + str(video_counter) + file_type
-            out = cv.VideoWriter(save_name, fourcc_avi, fps, size)
-            t = threading.Thread(target=thread2)
+            out = cv.VideoWriter(save_name, fourcc, fps, size)
+            t = threading.Thread(target=thread)
             t.start()
             print('writing to ' + save_name)
         elif (write_flag == 1):

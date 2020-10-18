@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>播放清單</title>
+</head>
+
+<body>
+    <form name="form" method="post" action="/getvideo">
+        <select name="v" id="sc">
+            <!-- <option value="movie.mp4"> movie.mp4 </option> -->
+        </select>
+        <input type="submit" value="送出">
+    </form>
+</body>
+
+<script type="text/javascript">
+    var fileName = {{.files }}
+    for (var i = 0; i < fileName.length; i++) {
+        const op = document.createElement('option');
+        op.setAttribute('value', fileName[i]);
+        op.innerText = fileName[i];
+        document.querySelector('#sc').appendChild(op);
+    }
+</script>
