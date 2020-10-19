@@ -34,8 +34,6 @@ while(cap.isOpened()):
         out = cv2.VideoWriter(video_name, fourcc, fps, size)
         index+=1
         end = now+add
-    
-   
   else:
     break
 print('end')
