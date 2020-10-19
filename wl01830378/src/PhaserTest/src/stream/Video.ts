@@ -6,7 +6,7 @@ export default class Video {
     private player: any;
     private interval: integer = 0;
     public isPlaying: boolean = false;
-    private static videoIP: string = 'http://192.168.0.33';
+    private static videoIP: string = 'http://192.168.0.158';
     private static appName: string = 'live';
 
     open(scene: Phaser.Scene) {
@@ -15,8 +15,9 @@ export default class Video {
             this.video.muted = true;
             this.video.width = 512;
             this.video.height = 288;
-            this.video.playsinline = "";
-            this.video.setAttribute('webkit-playsinline', '');
+            this.video.autoplay = true;
+            this.video.setAttribute('playsinline', 'playsinline');
+            this.video.setAttribute('webkit-playsinline', 'webkit-playsinline');
             scene.add.dom(1280 / 2, 720 / 2, this.video);
             console.log(this.video);
         }
@@ -25,11 +26,16 @@ export default class Video {
     }
 
     close() {
-        this.player.pause();
-        this.player.unload();
-        this.player.detachMediaElement();
-        this.player.destroy();
-        this.player = undefined;
+        if (flvjs.isSupported() || hlsjs.isSupported()) {
+            this.player.pause();
+            this.player.unload();
+            this.player.detachMediaElement();
+            this.player.destroy();
+            this.player = undefined;
+        } else{
+            this.video.pause();
+            this.video.src = "";
+        }
         this.isPlaying = false;
         clearInterval(this.interval);
     }
@@ -56,10 +62,10 @@ export default class Video {
                 this.video.addEventListener('loadedmetadata', this.playVideo.bind(this, this.video));
             }
             else if (hlsjs.isSupported()) {
-                var hls = new hlsjs();
-                hls.loadSource(Video.videoIP + ':' + 7002 + '/' + Video.appName + '/' + room + '.m3u8');
-                hls.attachMedia(this.video);
-                hls.on(hlsjs.Events.MANIFEST_PARSED, this.playVideo.bind(this, this.video));
+                this.player = new hlsjs();
+                this.player.loadSource(Video.videoIP + ':' + 7002 + '/' + Video.appName + '/' + room + '.m3u8');
+                this.player.attachMedia(this.video);
+                this.player.on(hlsjs.Events.MANIFEST_PARSED, this.playVideo.bind(this, this.video));
             }
             else {
                 alert('Can\'t download stream');
