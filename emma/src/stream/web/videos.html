@@ -8,12 +8,20 @@
 </head>
 
 <body>
-    <form name="form" method="post" action="/getvideo">
+    <!-- <form name="form" method="post" action="/getvideo">
         <select name="v" id="sc">
-            <!-- <option value="movie.mp4"> movie.mp4 </option> -->
+            <option value="movie.mp4"> movie.mp4 </option>
         </select>
         <input type="submit" value="送出">
-    </form>
+    </form> -->
+
+    <select name="v" id="sc" onchange="change_value();">
+    </select>
+
+    <p>
+        <video id="movie" width="600" height="400" controls autoplay>
+        </video>
+    </p>
 </body>
 
 <script type="text/javascript">
@@ -23,5 +31,18 @@
         op.setAttribute('value', fileName[i]);
         op.innerText = fileName[i];
         document.querySelector('#sc').appendChild(op);
+    }
+    const name = "../video/" + fileName[0]
+    // const op = document.createElement('source');
+    // op.setAttribute('src', name);
+    // document.querySelector('#movie').appendChild(op);
+
+    var video = document.getElementById("movie");
+    document.getElementById("movie").setAttribute('src', name);
+
+    function change_value() {
+        console.log(document.getElementById("sc").value);
+        video.src = "../video/" + document.getElementById("sc").value;
+        video.play();
     }
 </script>
