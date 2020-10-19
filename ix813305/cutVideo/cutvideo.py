@@ -15,7 +15,8 @@ name = 'video/output_'
 index = 0
 add = 10
 video_name = name+str(index)+".avi"
-print("start")
+print("video start")
+print(video_name,"start")
 out = cv2.VideoWriter(video_name, fourcc, fps, size)
 end = time.time()+add
 while(cap.isOpened()):
@@ -29,14 +30,15 @@ while(cap.isOpened()):
     now = time.time()
     if now>=end:
         out.release()
-        video_name = name+str(index)+".avi"
-        print(video_name+" finish")
-        out = cv2.VideoWriter(video_name, fourcc, fps, size)
+        print(video_name,"finish")
         index+=1
+        video_name = name+str(index)+".avi"
+        out = cv2.VideoWriter(video_name, fourcc, fps, size)
+        print(video_name,"start")
         end = now+add
   else:
     break
-print('end')
+print('video finish')
 # 釋放所有資源
 cap.release()
 out.release()
