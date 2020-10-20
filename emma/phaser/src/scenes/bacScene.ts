@@ -1,18 +1,18 @@
 import Phaser from 'phaser'
 import { ScrollablePanel } from 'phaser3-rex-plugins/templates/ui/ui-components.js';
+import RoomIcon from '~/object/RoomIcon';
 
 export default class bacScene extends Phaser.Scene {
     constructor() {
         super('bac')
     }
 
+    private icons: RoomIcon;
+    private cursors;
+
     preload() {
         this.load.multiatlas('bac', 'sprite/bac.json', 'sprite');
         this.load.image('BG', 'sprite/Scene_A.png');
-
-        this.load.image('bar01', 'sprite/bbac/Bar_UI_01.png');
-        this.load.image('bar02', 'sprite/bbac/Bar_UI_02_2.png');
-        this.load.image('ele', 'sprite/bbac/ui_table_a01.png');
     }
 
     create() {
@@ -21,7 +21,7 @@ export default class bacScene extends Phaser.Scene {
         //上方
         this.add.sprite(1151, 690, 'bac', 'UI_Auto_bn01.png'); //自動重複按紐
         this.add.sprite(1169, 38, 'bac', 'UI_Bet_Log_01.png'); //紀錄按紐
-        this.add.sprite(1240, 38, 'bac', 'UI_TOP_Setup_01.png'); //設定按紐
+        let btnnn = this.add.sprite(1240, 38, 'bac', 'UI_TOP_Setup_01.png'); //設定按紐
         this.add.sprite(162, 40, 'bac', 'area_choose_A01.png'); //切換廳館
         this.add.sprite(279, 32, 'bac', 'area_choose_A02.png'); //廳館下拉三角形
         this.add.text(24, 39, "見習廳(10-1000)", { font: "22px fontMin", fill: "#ffef6e", }).setStroke("271913", 2).setOrigin(0, 0.5);
@@ -59,7 +59,7 @@ export default class bacScene extends Phaser.Scene {
             },
         })
         panel.layout();
-        // .drawBounds(this.add.graphics(), 0xff0000);  //畫線用
+        // panel.drawBounds(this.add.graphics(), 0xff0000);  //畫線用
 
         //下方
         this.add.sprite(640, 680, 'bac', 'UI_down_01.png'); //下方背景條
@@ -73,20 +73,45 @@ export default class bacScene extends Phaser.Scene {
         this.add.sprite(705, 694, 'bac', 'UI_Chips_15.png'); //籌碼
         this.add.sprite(811, 694, 'bac', 'UI_Chips_16.png'); //籌碼
         this.add.sprite(917, 694, 'bac', 'UI_Chips_17.png'); //籌碼
+
+
+        // btnnn.setInteractive();
+        // btnnn.on('pointerdown', () => this.btnDown());  //設定紐按鍵事件
+
+
+        // this.icons = new RoomIcon(this, 500, 200);
+        // console.log(this.icons)
+
+
+        this.cursors = this.input.keyboard.createCursorKeys(); //輸入控制
+    }
+
+    update() {
+        if (this.cursors.left.isDown) {
+            this.icons.x -= 10;
+        }
+        else if (this.cursors.right.isDown) {
+            this.icons.x += 10;
+        }
     }
 
     public CreatElement() {
         let sizer = this.rexUI.add.sizer({
             orientation: 'y',
-            space: { left: 0, right: 0, top: 0, bottom: 0, item: 2 }
+            space: { left: 0, right: 0, top: 140, bottom: 140, item: 282 }
         })
-        for (let i = 0; i < 5; i++) {
-            sizer.add(this.add.sprite(0, 0, 'bac', 'ui_table_a01.png'));
+        for (let i = 0; i < 6; i++) {
+            // sizer.add(this.add.sprite(0, 0, 'bac', 'ui_table_a01.png'));
+            sizer.add(new RoomIcon(this));
         }
         sizer.layout();
-        // .drawBounds(this.add.graphics(), 0xff0000);
-
+        // sizer.drawBounds(this.add.graphics(), 0xff0000);
+        // console.log(sizer);
         return sizer;
+    }
+
+    btnDown() {
+        console.log('btnDown');
     }
 }
 
