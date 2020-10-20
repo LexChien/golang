@@ -5,23 +5,23 @@ export default class RoomIcon extends Phaser.GameObjects.Container {
         super(scene)
         this.m_Scene = scene
 
-        this.BG = scene.add.sprite(0, 0, 'bac', 'ui_table_a01.png');
-        this.favorite = scene.add.sprite(-564, -118, 'bac', 'heart_01.png');
-        this.ui_zoomin = scene.add.sprite(-245, 73, 'bac', 'ui_zoom_in.png');
-        this.ui_video = scene.add.sprite(-399, 120, 'bac', 'ui_video_01.png');
-        this.ui_tablelog = scene.add.sprite(-273, 120, 'bac', 'ui_game_table_log_01.png');
-        this.tag_F01_type = scene.add.sprite(-139, -119, 'bac', 'ui_table_F01_01.png');
-        this.tag_F02_type = scene.add.sprite(-7, -119, 'bac', 'ui_table_F01_04.png');
-        this.txt_F01 = scene.add.text(-139, -117, "一般", { font: "20px fontMin", fill: "#ffef6e" }).setStroke("630202", 2).setOrigin(0.5);
-        this.txt_F02 = scene.add.text(-7, -117, "特殊", { font: "20px fontMin", fill: "#b39b44" }).setOrigin(0.5);
-        this.img_goodroad = scene.add.sprite(-138, -66, 'bac', 'good_road_01.png');
-        this.img_roomtype_bg = scene.add.sprite(-2, -66, 'bac', 'ui_table_F02_01.png');
-        this.img_roomtype_c = scene.add.sprite(43, -66, 'bac', 'ui_table_F02_02.png');
-        this.btn_info = scene.add.sprite(-182, 4, 'bac', 'ui_explanation_01.png');
-        this.img_btn_bg = scene.add.sprite(-70, 87, 'bac', 'ui_ok_no_reture_frame.png');
-        this.btn_ok = scene.add.sprite(-155, 86, 'bac', 'ui_ok_no_reture_a01.png');
-        this.btn_cancel = scene.add.sprite(-70, 86, 'bac', 'ui_ok_no_reture_b01.png');
-        this.btn_double = scene.add.sprite(15, 86, 'bac', 'ui_ok_no_reture_c01.png');
+        this.BG = scene.add.sprite(590, 140, 'bac', 'ui_table_a01.png');
+        this.favorite = scene.add.sprite(26, 22, 'bac', 'heart_01.png');
+        this.ui_zoomin = scene.add.sprite(345, 213, 'bac', 'ui_zoom_in.png');
+        this.ui_video = scene.add.sprite(191, 260, 'bac', 'ui_video_01.png');
+        this.ui_tablelog = scene.add.sprite(317, 260, 'bac', 'ui_game_table_log_01.png');
+        this.tag_F01_type = scene.add.sprite(451, 21, 'bac', 'ui_table_F01_01.png');
+        this.tag_F02_type = scene.add.sprite(583, 21, 'bac', 'ui_table_F01_04.png');
+        this.txt_F01 = scene.add.text(451, 23, "一般", { font: "20px fontMin", fill: "#ffef6e" }).setStroke("630202", 2).setOrigin(0.5);
+        this.txt_F02 = scene.add.text(583, 23, "特殊", { font: "20px fontMin", fill: "#b39b44" }).setOrigin(0.5);
+        this.img_goodroad = scene.add.sprite(452, 74, 'bac', 'good_road_01.png');
+        this.img_roomtype_bg = scene.add.sprite(588, 74, 'bac', 'ui_table_F02_01.png');
+        this.img_roomtype_c = scene.add.sprite(633, 74, 'bac', 'ui_table_F02_02.png');
+        this.btn_info = scene.add.sprite(408, 144, 'bac', 'ui_explanation_01.png');
+        this.img_btn_bg = scene.add.sprite(520, 227, 'bac', 'ui_ok_no_reture_frame.png');
+        this.btn_ok = scene.add.sprite(435, 226, 'bac', 'ui_ok_no_reture_a01.png');
+        this.btn_cancel = scene.add.sprite(520, 226, 'bac', 'ui_ok_no_reture_b01.png');
+        this.btn_double = scene.add.sprite(605, 226, 'bac', 'ui_ok_no_reture_c01.png');
         this.add(this.tag_F01_type);
         this.add(this.tag_F02_type);
         this.add(this.txt_F01);
@@ -69,13 +69,13 @@ export default class RoomIcon extends Phaser.GameObjects.Container {
     private btn_double; //重複按鈕
 
     ChangeRoomBG(type: number) {
-        console.log('ChangeRoomBG '+type);
-        if (type == 0) {
-            this.tag_F01_type.setFrame('ui_table_F01_01');
-        } else {
-            this.tag_F01_type.setFrame('ui_table_F01_03');
+        console.log('ChangeRoomBG ' + type);
+        // if (type == 0) {
+        //     this.tag_F01_type.setFrame('ui_table_F01_01');
+        // } else {
+        //     this.tag_F01_type.setFrame('ui_table_F01_03');
 
-        }
+        // }
     }
 
 }

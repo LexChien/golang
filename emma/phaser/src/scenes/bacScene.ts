@@ -1,6 +1,11 @@
 import Phaser from 'phaser'
 import { ScrollablePanel } from 'phaser3-rex-plugins/templates/ui/ui-components.js';
 import RoomIcon from '~/object/RoomIcon';
+const Random = Phaser.Math.Between;
+
+const COLOR_PRIMARY = 0x4e342e;
+const COLOR_LIGHT = 0x7b5e57;
+const COLOR_DARK = 0x260e04;
 
 export default class bacScene extends Phaser.Scene {
     constructor() {
@@ -9,7 +14,7 @@ export default class bacScene extends Phaser.Scene {
 
     private icons: RoomIcon;
     private cursors;
-    private text:Phaser.GameObjects.Text;
+    private text: Phaser.GameObjects.Text;
 
     preload() {
         this.load.multiatlas('bac', 'sprite/bac.json', 'sprite');
@@ -29,39 +34,98 @@ export default class bacScene extends Phaser.Scene {
 
         // let spr = this.add.sprite(623, 207, 'bac', 'ui_table_a01.png'); //對其用
 
-        let trackGameObject = this.add.sprite(1239, 351, 'bac', 'Bar_UI_02_2.png').setScale(1, 89.5);
-        // let trackGameObject = this.add.sprite(1239, 349, 'bac', 'Bar_UI_02.png').setDisplaySize(8, 547);
-        let thumbGameObject = this.add.sprite(1239, 111, 'bac', 'Bar_UI_01.png')
-        let panel = this.rexUI.add.scrollablePanel({
-            x: 623,
-            y: 720 / 2,
-            // anchor: {'centerX':'50%'},
+        let trackGameObject = this.add.sprite(0, 0, 'bac', 'Bar_UI_02_2.png').setScale(1, 0);
+        let thumbGameObject = this.add.sprite(0, 0, 'bac', 'Bar_UI_01.png')
+        // let panel = this.rexUI.add.scrollablePanel({
+        //     x: 623,
+        //     y: 720 / 2,
+        //     // anchor: {'centerX':'50%'},
+        //     width: 1280,
+        //     height: 562,
+        //     scrollMode: 0,
+        //     panel: {
+        //         child: this.CreatElement(),
+        //         mask: {
+        //             padding: 0,
+        //             updateMode: 0
+        //         }
+        //     },
+
+        //     slider: {
+        //         track: trackGameObject,
+        //         thumb: thumbGameObject,
+        //         position: 0,
+        //     },
+        //     // clamplChildOY: true,
+        //     scroller: {
+        //         threshold: 0,
+        //         slidingDeceleration: 1,
+        //         backDeceleration: 10000,
+        //     },
+        // })
+        // panel.layout();
+        // // panel.drawBounds(this.add.graphics(), 0xff0000);  //畫線用
+        // // console.log(panel)
+
+        var gridTable = this.rexUI.add.gridTable({
+            x: 0,
+            y: 720 / 2-10,
+            anchor: {'centerX':'50%'},
             width: 1280,
             height: 562,
             scrollMode: 0,
-            panel: {
-                child: this.CreatElement(),
-                mask: {
-                    padding: 0,
-                    updateMode: 0
-                }
+            table: {
+                cellWidth: 1180,
+                cellHeight: 282,
+                columns: 1,
+                mask: { padding:0 },
+                reuseCellContainer: true,
             },
-
             slider: {
                 track: trackGameObject,
                 thumb: thumbGameObject,
-                position: 0,
             },
-            // clamplChildOY: true,
             scroller: {
                 threshold: 0,
                 slidingDeceleration: 1,
                 backDeceleration: 10000,
             },
-        })
-        panel.layout();
-        // panel.drawBounds(this.add.graphics(), 0xff0000);  //畫線用
-        // console.log(panel)
+            space: {
+                left: 33,
+                right: 33,
+                top: 0,
+                bottom: 0,
+                slider: {
+                    // left: 0,
+                    // right: 20,
+                    top: 20,
+                    // bottom: 20,
+                },
+            },
+
+            createCellContainerCallback: function (cell, cellContainer) {
+                var scene = cell.scene,
+                    width = cell.width,
+                    height = cell.height,
+                    item = cell.item,
+                    index = cell.index;
+
+                if (item.removed) {
+                    return null;
+                }
+                if (cellContainer === null) {
+                    var container = new RoomIcon(scene);
+                    cellContainer = container;
+                } else {
+                    // console.log(cell.index + ': reuse cell-container');
+                }
+                return cellContainer;
+            },
+            items: getItems(5)
+        });
+        gridTable.layout();
+        gridTable.drawBounds(this.add.graphics(), 0xff0000);
+        console.log(gridTable);
 
         //下方
         this.add.sprite(640, 680, 'bac', 'UI_down_01.png'); //下方背景條
@@ -101,7 +165,7 @@ export default class bacScene extends Phaser.Scene {
         let sizer = this.rexUI.add.sizer({
             orientation: 'y',
             space: { left: 0, right: 0, top: 140, bottom: 140, item: 282 },
-            
+
         })
         for (let i = 0; i < 3; i++) {
             // sizer.add(this.add.sprite(0, 0, 'bac', 'ui_table_a01.png'));
@@ -117,5 +181,15 @@ export default class bacScene extends Phaser.Scene {
         console.log('btnDown');
         this.text.setText("阿哈哈哈哈哈");
     }
+}
+var getItems = function (count) {
+    var data: any[] = [];
+    for (var i = 0; i < count; i++) {
+        data.push({
+            id: i,
+            color: Random(0, 0xffffff)
+        });
+    }
+    return data;
 }
 
