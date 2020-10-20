@@ -9,6 +9,7 @@ export default class bacScene extends Phaser.Scene {
 
     private icons: RoomIcon;
     private cursors;
+    private text:Phaser.GameObjects.Text;
 
     preload() {
         this.load.multiatlas('bac', 'sprite/bac.json', 'sprite');
@@ -24,7 +25,7 @@ export default class bacScene extends Phaser.Scene {
         let btnnn = this.add.sprite(1240, 38, 'bac', 'UI_TOP_Setup_01.png'); //設定按紐
         this.add.sprite(162, 40, 'bac', 'area_choose_A01.png'); //切換廳館
         this.add.sprite(279, 32, 'bac', 'area_choose_A02.png'); //廳館下拉三角形
-        this.add.text(24, 39, "見習廳(10-1000)", { font: "22px fontMin", fill: "#ffef6e", }).setStroke("271913", 2).setOrigin(0, 0.5);
+        this.text = this.add.text(24, 39, "見習廳(10-1000)", { font: "22px fontMin", fill: "#ffef6e", }).setStroke("271913", 2).setOrigin(0, 0.5);
 
         // let spr = this.add.sprite(623, 207, 'bac', 'ui_table_a01.png'); //對其用
 
@@ -34,14 +35,14 @@ export default class bacScene extends Phaser.Scene {
         let panel = this.rexUI.add.scrollablePanel({
             x: 623,
             y: 720 / 2,
-            anchor: 0.5,
+            // anchor: {'centerX':'50%'},
             width: 1280,
             height: 562,
             scrollMode: 0,
             panel: {
                 child: this.CreatElement(),
                 mask: {
-                    padding: 1,
+                    padding: 0,
                     updateMode: 0
                 }
             },
@@ -51,15 +52,16 @@ export default class bacScene extends Phaser.Scene {
                 thumb: thumbGameObject,
                 position: 0,
             },
-            clamplChildOY: true,
+            // clamplChildOY: true,
             scroller: {
                 threshold: 0,
-                slidingDeceleration: false,
-                backDeceleration: false,
+                slidingDeceleration: 1,
+                backDeceleration: 10000,
             },
         })
         panel.layout();
         // panel.drawBounds(this.add.graphics(), 0xff0000);  //畫線用
+        // console.log(panel)
 
         //下方
         this.add.sprite(640, 680, 'bac', 'UI_down_01.png'); //下方背景條
@@ -75,8 +77,8 @@ export default class bacScene extends Phaser.Scene {
         this.add.sprite(917, 694, 'bac', 'UI_Chips_17.png'); //籌碼
 
 
-        // btnnn.setInteractive();
-        // btnnn.on('pointerdown', () => this.btnDown());  //設定紐按鍵事件
+        btnnn.setInteractive();
+        btnnn.on('pointerdown', () => this.btnDown());  //設定紐按鍵事件
 
 
         // this.icons = new RoomIcon(this, 500, 200);
@@ -87,20 +89,21 @@ export default class bacScene extends Phaser.Scene {
     }
 
     update() {
-        if (this.cursors.left.isDown) {
-            this.icons.x -= 10;
-        }
-        else if (this.cursors.right.isDown) {
-            this.icons.x += 10;
-        }
+        // if (this.cursors.left.isDown) {
+        //     this.icons.x -= 10;
+        // }
+        // else if (this.cursors.right.isDown) {
+        //     this.icons.x += 10;
+        // }
     }
 
     public CreatElement() {
         let sizer = this.rexUI.add.sizer({
             orientation: 'y',
-            space: { left: 0, right: 0, top: 140, bottom: 140, item: 282 }
+            space: { left: 0, right: 0, top: 140, bottom: 140, item: 282 },
+            
         })
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 3; i++) {
             // sizer.add(this.add.sprite(0, 0, 'bac', 'ui_table_a01.png'));
             sizer.add(new RoomIcon(this));
         }
@@ -112,6 +115,7 @@ export default class bacScene extends Phaser.Scene {
 
     btnDown() {
         console.log('btnDown');
+        this.text.setText("阿哈哈哈哈哈");
     }
 }
 
