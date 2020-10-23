@@ -26,7 +26,7 @@ export default class bacScene extends Phaser.Scene {
         //背景
         this.add.sprite(640, 360, 'BG');
         //產生scrollview
-        new RoomManager(this); //scrollview type:GridTable
+        new RoomManager(this);
         //產生UI物件
         new SceneUI(this);
 
@@ -35,6 +35,7 @@ export default class bacScene extends Phaser.Scene {
         // console.log(FileManager.getSysText(5)); //測試取得語系系統字
         // console.log(FileManager.getMsgDate(3)); //測試取得語系msg
         // this.add.sprite(640, 360, 'lang', 'Choose_Player_01.png'); //測試語系圖
+
     }
 
     update() {

@@ -4,7 +4,7 @@ import RoomIcon from './RoomIcon';
 export default class RoomManager{
     constructor(scene) {
         // super(scene)
-        this.m_Scene = scene
+        this.m_Scene = scene;
 
         this.trackGameObject = scene.add.sprite(0, 0, 'main', 'Bar_UI_02.png').setScale(1, 0);
         this.thumbGameObject = scene.add.sprite(0, 0, 'main', 'Bar_UI_01.png')
