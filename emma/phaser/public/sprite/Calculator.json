@@ -1,0 +1,335 @@
+{
+	"textures": [
+		{
+			"image": "calculator.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 494,
+				"h": 324
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "UI_Calculator_panel.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 368,
+						"h": 322
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 368,
+						"h": 322
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 368,
+						"h": 322
+					}
+				},
+				{
+					"filename": "UI_Calculator_button_1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 122,
+						"h": 82
+					},
+					"frame": {
+						"x": 371,
+						"y": 1,
+						"w": 122,
+						"h": 82
+					}
+				},
+				{
+					"filename": "UI_Calculator_button_2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 122,
+						"h": 82
+					},
+					"frame": {
+						"x": 371,
+						"y": 85,
+						"w": 122,
+						"h": 82
+					}
+				},
+				{
+					"filename": "UI_Calculator_del.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 27,
+						"w": 53,
+						"h": 28
+					},
+					"frame": {
+						"x": 371,
+						"y": 169,
+						"w": 53,
+						"h": 28
+					}
+				},
+				{
+					"filename": "UI_Calculator_enter.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 40,
+						"y": 21,
+						"w": 41,
+						"h": 39
+					},
+					"frame": {
+						"x": 426,
+						"y": 169,
+						"w": 41,
+						"h": 39
+					}
+				},
+				{
+					"filename": "UI_Calculator_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 48,
+						"y": 22,
+						"w": 20,
+						"h": 38
+					},
+					"frame": {
+						"x": 469,
+						"y": 169,
+						"w": 20,
+						"h": 38
+					}
+				},
+				{
+					"filename": "UI_Calculator_04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 46,
+						"y": 22,
+						"w": 29,
+						"h": 38
+					},
+					"frame": {
+						"x": 371,
+						"y": 199,
+						"w": 29,
+						"h": 38
+					}
+				},
+				{
+					"filename": "UI_Calculator_06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 47,
+						"y": 22,
+						"w": 27,
+						"h": 39
+					},
+					"frame": {
+						"x": 371,
+						"y": 239,
+						"w": 27,
+						"h": 39
+					}
+				},
+				{
+					"filename": "UI_Calculator_09.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 46,
+						"y": 22,
+						"w": 27,
+						"h": 39
+					},
+					"frame": {
+						"x": 371,
+						"y": 280,
+						"w": 27,
+						"h": 39
+					}
+				},
+				{
+					"filename": "UI_Calculator_00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 47,
+						"y": 22,
+						"w": 26,
+						"h": 39
+					},
+					"frame": {
+						"x": 400,
+						"y": 239,
+						"w": 26,
+						"h": 39
+					}
+				},
+				{
+					"filename": "UI_Calculator_03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 47,
+						"y": 22,
+						"w": 26,
+						"h": 39
+					},
+					"frame": {
+						"x": 400,
+						"y": 280,
+						"w": 26,
+						"h": 39
+					}
+				},
+				{
+					"filename": "UI_Calculator_02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 46,
+						"y": 22,
+						"w": 27,
+						"h": 38
+					},
+					"frame": {
+						"x": 428,
+						"y": 210,
+						"w": 27,
+						"h": 38
+					}
+				},
+				{
+					"filename": "UI_Calculator_05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 47,
+						"y": 23,
+						"w": 27,
+						"h": 38
+					},
+					"frame": {
+						"x": 457,
+						"y": 210,
+						"w": 27,
+						"h": 38
+					}
+				},
+				{
+					"filename": "UI_Calculator_08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 47,
+						"y": 22,
+						"w": 26,
+						"h": 39
+					},
+					"frame": {
+						"x": 428,
+						"y": 250,
+						"w": 26,
+						"h": 39
+					}
+				},
+				{
+					"filename": "UI_Calculator_07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 122,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 48,
+						"y": 23,
+						"w": 27,
+						"h": 37
+					},
+					"frame": {
+						"x": 456,
+						"y": 250,
+						"w": 27,
+						"h": 37
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:7e79978152e7a396e18db55b406e02f8:b2d00a85e6621f98c4da387848da6698:5ac0a10631908a085f2ba40d2a536981$"
+	}
+}

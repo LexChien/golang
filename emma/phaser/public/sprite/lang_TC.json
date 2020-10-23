@@ -1,0 +1,797 @@
+{
+	"textures": [
+		{
+			"image": "lang_TC.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 503,
+				"h": 597
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "ui_OverLimit_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 470,
+						"h": 148
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 23,
+						"w": 411,
+						"h": 101
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 411,
+						"h": 101
+					}
+				},
+				{
+					"filename": "back_a01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 88,
+						"h": 122
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 88,
+						"h": 122
+					},
+					"frame": {
+						"x": 414,
+						"y": 1,
+						"w": 88,
+						"h": 122
+					}
+				},
+				{
+					"filename": "Gem_For_Coin.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 150,
+						"h": 98
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 150,
+						"h": 98
+					},
+					"frame": {
+						"x": 1,
+						"y": 104,
+						"w": 150,
+						"h": 98
+					}
+				},
+				{
+					"filename": "UI_Auto_bn02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 10,
+						"w": 169,
+						"h": 79
+					},
+					"frame": {
+						"x": 153,
+						"y": 104,
+						"w": 169,
+						"h": 79
+					}
+				},
+				{
+					"filename": "PLAYER_ICON.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 13,
+						"w": 79,
+						"h": 55
+					},
+					"frame": {
+						"x": 324,
+						"y": 104,
+						"w": 79,
+						"h": 55
+					}
+				},
+				{
+					"filename": "Choose_Banker_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 95,
+						"h": 67
+					},
+					"frame": {
+						"x": 405,
+						"y": 125,
+						"w": 95,
+						"h": 67
+					}
+				},
+				{
+					"filename": "BANKER_ICON.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 13,
+						"w": 75,
+						"h": 55
+					},
+					"frame": {
+						"x": 324,
+						"y": 161,
+						"w": 75,
+						"h": 55
+					}
+				},
+				{
+					"filename": "Choose_Player_01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 68
+					},
+					"frame": {
+						"x": 401,
+						"y": 194,
+						"w": 100,
+						"h": 68
+					}
+				},
+				{
+					"filename": "UI_Auto_bn01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 17,
+						"w": 153,
+						"h": 63
+					},
+					"frame": {
+						"x": 153,
+						"y": 185,
+						"w": 153,
+						"h": 63
+					}
+				},
+				{
+					"filename": "TIE_001.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 3,
+						"w": 65,
+						"h": 56
+					},
+					"frame": {
+						"x": 308,
+						"y": 218,
+						"w": 65,
+						"h": 56
+					}
+				},
+				{
+					"filename": "Choose_Player_02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 68
+					},
+					"frame": {
+						"x": 375,
+						"y": 264,
+						"w": 100,
+						"h": 68
+					}
+				},
+				{
+					"filename": "no_empty_seat.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 202,
+						"h": 54
+					},
+					"spriteSourceSize": {
+						"x": 27,
+						"y": 3,
+						"w": 148,
+						"h": 47
+					},
+					"frame": {
+						"x": 1,
+						"y": 204,
+						"w": 148,
+						"h": 47
+					}
+				},
+				{
+					"filename": "ui_history_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 134,
+						"h": 54
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 3,
+						"w": 134,
+						"h": 51
+					},
+					"frame": {
+						"x": 151,
+						"y": 250,
+						"w": 134,
+						"h": 51
+					}
+				},
+				{
+					"filename": "good_road_word_12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 0,
+						"w": 78,
+						"h": 38
+					},
+					"frame": {
+						"x": 287,
+						"y": 276,
+						"w": 78,
+						"h": 38
+					}
+				},
+				{
+					"filename": "ui_history_02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 134,
+						"h": 54
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 3,
+						"w": 134,
+						"h": 51
+					},
+					"frame": {
+						"x": 1,
+						"y": 253,
+						"w": 134,
+						"h": 51
+					}
+				},
+				{
+					"filename": "PLAYER_10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 68
+					},
+					"frame": {
+						"x": 137,
+						"y": 303,
+						"w": 100,
+						"h": 68
+					}
+				},
+				{
+					"filename": "BANKER_10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 97,
+						"h": 64
+					},
+					"frame": {
+						"x": 239,
+						"y": 316,
+						"w": 97,
+						"h": 64
+					}
+				},
+				{
+					"filename": "Choose_Banker_02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 97,
+						"h": 64
+					},
+					"frame": {
+						"x": 1,
+						"y": 306,
+						"w": 97,
+						"h": 64
+					}
+				},
+				{
+					"filename": "good_road_word.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 39
+					},
+					"frame": {
+						"x": 1,
+						"y": 372,
+						"w": 128,
+						"h": 39
+					}
+				},
+				{
+					"filename": "good_road_word_07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 39
+					},
+					"frame": {
+						"x": 1,
+						"y": 372,
+						"w": 128,
+						"h": 39
+					}
+				},
+				{
+					"filename": "good_road_word_03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 0,
+						"w": 97,
+						"h": 38
+					},
+					"frame": {
+						"x": 131,
+						"y": 373,
+						"w": 97,
+						"h": 38
+					}
+				},
+				{
+					"filename": "NATURAL8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 180,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 15,
+						"w": 151,
+						"h": 40
+					},
+					"frame": {
+						"x": 338,
+						"y": 334,
+						"w": 151,
+						"h": 40
+					}
+				},
+				{
+					"filename": "NATURAL9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 180,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 15,
+						"w": 151,
+						"h": 40
+					},
+					"frame": {
+						"x": 338,
+						"y": 376,
+						"w": 151,
+						"h": 40
+					}
+				},
+				{
+					"filename": "good_road_word_04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 0,
+						"w": 97,
+						"h": 38
+					},
+					"frame": {
+						"x": 230,
+						"y": 382,
+						"w": 97,
+						"h": 38
+					}
+				},
+				{
+					"filename": "ui_ok_a_1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 170,
+						"h": 74
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 170,
+						"h": 70
+					},
+					"frame": {
+						"x": 329,
+						"y": 418,
+						"w": 170,
+						"h": 70
+					}
+				},
+				{
+					"filename": "NATURAL8_glow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 180,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 180,
+						"h": 70
+					},
+					"frame": {
+						"x": 1,
+						"y": 413,
+						"w": 180,
+						"h": 70
+					}
+				},
+				{
+					"filename": "good_road_word_08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 39
+					},
+					"frame": {
+						"x": 183,
+						"y": 422,
+						"w": 128,
+						"h": 39
+					}
+				},
+				{
+					"filename": "system_maintenance.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 276,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 81,
+						"y": 0,
+						"w": 113,
+						"h": 44
+					},
+					"frame": {
+						"x": 183,
+						"y": 463,
+						"w": 113,
+						"h": 44
+					}
+				},
+				{
+					"filename": "NATURAL9_glow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 180,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 180,
+						"h": 70
+					},
+					"frame": {
+						"x": 1,
+						"y": 485,
+						"w": 180,
+						"h": 70
+					}
+				},
+				{
+					"filename": "ui_ok_a_2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 170,
+						"h": 74
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 170,
+						"h": 66
+					},
+					"frame": {
+						"x": 298,
+						"y": 490,
+						"w": 170,
+						"h": 66
+					}
+				},
+				{
+					"filename": "good_road_word_05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 0,
+						"w": 77,
+						"h": 38
+					},
+					"frame": {
+						"x": 183,
+						"y": 509,
+						"w": 77,
+						"h": 38
+					}
+				},
+				{
+					"filename": "good_road_word_06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 0,
+						"w": 77,
+						"h": 38
+					},
+					"frame": {
+						"x": 183,
+						"y": 549,
+						"w": 77,
+						"h": 38
+					}
+				},
+				{
+					"filename": "good_road_word_09.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 0,
+						"w": 77,
+						"h": 38
+					},
+					"frame": {
+						"x": 1,
+						"y": 557,
+						"w": 77,
+						"h": 38
+					}
+				},
+				{
+					"filename": "good_road_word_10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 0,
+						"w": 77,
+						"h": 38
+					},
+					"frame": {
+						"x": 80,
+						"y": 557,
+						"w": 77,
+						"h": 38
+					}
+				},
+				{
+					"filename": "good_road_word_11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 0,
+						"w": 77,
+						"h": 38
+					},
+					"frame": {
+						"x": 262,
+						"y": 558,
+						"w": 77,
+						"h": 38
+					}
+				},
+				{
+					"filename": "good_road_word_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 36,
+						"y": 0,
+						"w": 57,
+						"h": 38
+					},
+					"frame": {
+						"x": 341,
+						"y": 558,
+						"w": 57,
+						"h": 38
+					}
+				},
+				{
+					"filename": "good_road_word_02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 36,
+						"y": 0,
+						"w": 57,
+						"h": 38
+					},
+					"frame": {
+						"x": 400,
+						"y": 558,
+						"w": 57,
+						"h": 38
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:d0164f60999ca67fead1708355f199e6:510ba931d9832d6bf8adf59c1c04db05:e570da86b7c049312a816890f842df28$"
+	}
+}

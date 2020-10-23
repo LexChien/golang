@@ -1,11 +1,8 @@
 import Phaser from 'phaser'
-import SceneUI from '~/object/SceneUI';
-import RoomManager from '~/object/RoomManager';
-const Random = Phaser.Math.Between;
-
-const COLOR_PRIMARY = 0x4e342e;
-const COLOR_LIGHT = 0x7b5e57;
-const COLOR_DARK = 0x260e04;
+import SceneUI from '~/script/Objects/SceneUI';
+import RoomManager from '~/script/Objects/RoomManager';
+import FileManager from '~/script/Manager/FileManager';
+import AtlasMgr from '~/script/Manager/AniAtlasMgr';
 
 export default class bacScene extends Phaser.Scene {
     constructor() {
@@ -15,17 +12,29 @@ export default class bacScene extends Phaser.Scene {
     private cursors;
 
     preload() {
-        this.load.multiatlas('bac', 'sprite/bac.json', 'sprite');
         this.load.image('BG', 'sprite/Scene_A.png');
+        //加載字串表
+        this.load.json('system', 'excel/SystemText.json');
+        this.load.json('message', 'excel/MessageData.json');
+        //加載圖集
+        new AtlasMgr(this);
     }
 
     create() {
-        this.add.sprite(640, 360, 'BG'); //背景
-
-        var gridTable = new RoomManager(this); //scrollview type:GridTable
-        var UI = new SceneUI(this);  //UI物件 type:group
+        //加載JSON資料
+        new FileManager(this);
+        //背景
+        this.add.sprite(640, 360, 'BG');
+        //產生scrollview
+        new RoomManager(this); //scrollview type:GridTable
+        //產生UI物件
+        new SceneUI(this);
 
         this.cursors = this.input.keyboard.createCursorKeys(); //輸入控制
+
+        // console.log(FileManager.getSysText(5)); //測試取得語系系統字
+        // console.log(FileManager.getMsgDate(3)); //測試取得語系msg
+        // this.add.sprite(640, 360, 'lang', 'Choose_Player_01.png'); //測試語系圖
     }
 
     update() {

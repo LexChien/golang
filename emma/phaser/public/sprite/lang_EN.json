@@ -1,0 +1,566 @@
+{
+	"textures": [
+		{
+			"image": "lang_EN.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 500,
+				"h": 539
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "ui_OverLimit_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 470,
+						"h": 148
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 23,
+						"w": 411,
+						"h": 101
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 411,
+						"h": 101
+					}
+				},
+				{
+					"filename": "PLAYER_ICON.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 13,
+						"w": 79,
+						"h": 55
+					},
+					"frame": {
+						"x": 414,
+						"y": 1,
+						"w": 79,
+						"h": 55
+					}
+				},
+				{
+					"filename": "BANKER_ICON.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 13,
+						"w": 75,
+						"h": 55
+					},
+					"frame": {
+						"x": 414,
+						"y": 58,
+						"w": 75,
+						"h": 55
+					}
+				},
+				{
+					"filename": "system_maintenance.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 276,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 7,
+						"w": 276,
+						"h": 35
+					},
+					"frame": {
+						"x": 1,
+						"y": 104,
+						"w": 276,
+						"h": 35
+					}
+				},
+				{
+					"filename": "good_road_word.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 40
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 3,
+						"w": 123,
+						"h": 34
+					},
+					"frame": {
+						"x": 279,
+						"y": 104,
+						"w": 123,
+						"h": 34
+					}
+				},
+				{
+					"filename": "good_road_word_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 123,
+						"h": 34
+					},
+					"frame": {
+						"x": 279,
+						"y": 104,
+						"w": 123,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Choose_Banker_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 95,
+						"h": 67
+					},
+					"frame": {
+						"x": 404,
+						"y": 115,
+						"w": 95,
+						"h": 67
+					}
+				},
+				{
+					"filename": "Choose_Player_01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 68
+					},
+					"frame": {
+						"x": 279,
+						"y": 140,
+						"w": 100,
+						"h": 68
+					}
+				},
+				{
+					"filename": "Choose_Player_02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 68
+					},
+					"frame": {
+						"x": 381,
+						"y": 184,
+						"w": 100,
+						"h": 68
+					}
+				},
+				{
+					"filename": "no_empty_seat.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 202,
+						"h": 54
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 11,
+						"w": 190,
+						"h": 32
+					},
+					"frame": {
+						"x": 1,
+						"y": 141,
+						"w": 190,
+						"h": 32
+					}
+				},
+				{
+					"filename": "NATURAL8_glow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 180,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 180,
+						"h": 70
+					},
+					"frame": {
+						"x": 1,
+						"y": 175,
+						"w": 180,
+						"h": 70
+					}
+				},
+				{
+					"filename": "back_a01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 88,
+						"h": 122
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 88,
+						"h": 122
+					},
+					"frame": {
+						"x": 183,
+						"y": 175,
+						"w": 88,
+						"h": 122
+					}
+				},
+				{
+					"filename": "NATURAL9_glow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 180,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 180,
+						"h": 70
+					},
+					"frame": {
+						"x": 1,
+						"y": 247,
+						"w": 180,
+						"h": 70
+					}
+				},
+				{
+					"filename": "PLAYER_10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 68
+					},
+					"frame": {
+						"x": 273,
+						"y": 210,
+						"w": 100,
+						"h": 68
+					}
+				},
+				{
+					"filename": "BANKER_10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 98,
+						"h": 64
+					},
+					"frame": {
+						"x": 375,
+						"y": 254,
+						"w": 98,
+						"h": 64
+					}
+				},
+				{
+					"filename": "Choose_Banker_02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 97,
+						"h": 64
+					},
+					"frame": {
+						"x": 273,
+						"y": 280,
+						"w": 97,
+						"h": 64
+					}
+				},
+				{
+					"filename": "TIE_001.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 100,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 3,
+						"w": 97,
+						"h": 54
+					},
+					"frame": {
+						"x": 372,
+						"y": 320,
+						"w": 97,
+						"h": 54
+					}
+				},
+				{
+					"filename": "Gem_For_Coin.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 150,
+						"h": 98
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 150,
+						"h": 97
+					},
+					"frame": {
+						"x": 1,
+						"y": 376,
+						"w": 150,
+						"h": 97
+					}
+				},
+				{
+					"filename": "UI_Auto_bn01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 17,
+						"w": 153,
+						"h": 63
+					},
+					"frame": {
+						"x": 1,
+						"y": 475,
+						"w": 153,
+						"h": 63
+					}
+				},
+				{
+					"filename": "ui_history_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 134,
+						"h": 54
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 3,
+						"w": 134,
+						"h": 51
+					},
+					"frame": {
+						"x": 1,
+						"y": 319,
+						"w": 134,
+						"h": 51
+					}
+				},
+				{
+					"filename": "ui_history_02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 134,
+						"h": 54
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 3,
+						"w": 134,
+						"h": 51
+					},
+					"frame": {
+						"x": 137,
+						"y": 319,
+						"w": 134,
+						"h": 51
+					}
+				},
+				{
+					"filename": "UI_Auto_bn02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 10,
+						"w": 169,
+						"h": 79
+					},
+					"frame": {
+						"x": 153,
+						"y": 376,
+						"w": 169,
+						"h": 79
+					}
+				},
+				{
+					"filename": "ui_ok_a_1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 170,
+						"h": 74
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 170,
+						"h": 70
+					},
+					"frame": {
+						"x": 324,
+						"y": 376,
+						"w": 170,
+						"h": 70
+					}
+				},
+				{
+					"filename": "ui_ok_a_2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 170,
+						"h": 74
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 170,
+						"h": 66
+					},
+					"frame": {
+						"x": 324,
+						"y": 448,
+						"w": 170,
+						"h": 66
+					}
+				},
+				{
+					"filename": "NATURAL9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 180,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 18,
+						"w": 166,
+						"h": 35
+					},
+					"frame": {
+						"x": 156,
+						"y": 457,
+						"w": 166,
+						"h": 35
+					}
+				},
+				{
+					"filename": "NATURAL8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 180,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 18,
+						"w": 159,
+						"h": 35
+					},
+					"frame": {
+						"x": 156,
+						"y": 494,
+						"w": 159,
+						"h": 35
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:0946c79df0a3a71f852019c6fe92d1a2:b2abc1555b4ac3bacfda1fbfabbee876:1a5f928bd8cf619556329d42bb6a12d0$"
+	}
+}

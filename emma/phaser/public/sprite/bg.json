@@ -1,0 +1,335 @@
+{
+	"textures": [
+		{
+			"image": "bg.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 511,
+				"h": 487
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "Scene_Light_A_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 400,
+						"h": 300
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 22,
+						"w": 366,
+						"h": 237
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 366,
+						"h": 237
+					}
+				},
+				{
+					"filename": "Scene_Light_B_02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 200,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 200,
+						"h": 200
+					},
+					"frame": {
+						"x": 1,
+						"y": 240,
+						"w": 200,
+						"h": 200
+					}
+				},
+				{
+					"filename": "Scene_Light_B_03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 0,
+						"w": 189,
+						"h": 200
+					},
+					"frame": {
+						"x": 203,
+						"y": 240,
+						"w": 189,
+						"h": 200
+					}
+				},
+				{
+					"filename": "Scene_Light_B_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 150,
+						"h": 150
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 2,
+						"w": 141,
+						"h": 142
+					},
+					"frame": {
+						"x": 369,
+						"y": 1,
+						"w": 141,
+						"h": 142
+					}
+				},
+				{
+					"filename": "Scene_Light_C_10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 8,
+						"w": 64,
+						"h": 58
+					},
+					"frame": {
+						"x": 369,
+						"y": 145,
+						"w": 64,
+						"h": 58
+					}
+				},
+				{
+					"filename": "Scene_Light_C_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 18,
+						"w": 49,
+						"h": 62
+					},
+					"frame": {
+						"x": 394,
+						"y": 205,
+						"w": 49,
+						"h": 62
+					}
+				},
+				{
+					"filename": "Scene_Light_C_09.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 10,
+						"w": 64,
+						"h": 56
+					},
+					"frame": {
+						"x": 435,
+						"y": 145,
+						"w": 64,
+						"h": 56
+					}
+				},
+				{
+					"filename": "Scene_Light_C_02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 18,
+						"w": 50,
+						"h": 61
+					},
+					"frame": {
+						"x": 394,
+						"y": 269,
+						"w": 50,
+						"h": 61
+					}
+				},
+				{
+					"filename": "Scene_Light_C_08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 11,
+						"w": 57,
+						"h": 57
+					},
+					"frame": {
+						"x": 445,
+						"y": 203,
+						"w": 57,
+						"h": 57
+					}
+				},
+				{
+					"filename": "Scene_Light_C_03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 17,
+						"w": 52,
+						"h": 60
+					},
+					"frame": {
+						"x": 394,
+						"y": 332,
+						"w": 52,
+						"h": 60
+					}
+				},
+				{
+					"filename": "Scene_Light_C_07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 13,
+						"w": 56,
+						"h": 57
+					},
+					"frame": {
+						"x": 446,
+						"y": 262,
+						"w": 56,
+						"h": 57
+					}
+				},
+				{
+					"filename": "Scene_Light_C_06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 14,
+						"w": 54,
+						"h": 57
+					},
+					"frame": {
+						"x": 394,
+						"y": 394,
+						"w": 54,
+						"h": 57
+					}
+				},
+				{
+					"filename": "Scene_Light_C_04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 16,
+						"w": 52,
+						"h": 59
+					},
+					"frame": {
+						"x": 448,
+						"y": 321,
+						"w": 52,
+						"h": 59
+					}
+				},
+				{
+					"filename": "Scene_Light_C_05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 15,
+						"w": 53,
+						"h": 58
+					},
+					"frame": {
+						"x": 450,
+						"y": 382,
+						"w": 53,
+						"h": 58
+					}
+				},
+				{
+					"filename": "Scene_Light_D_01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 44
+					},
+					"frame": {
+						"x": 450,
+						"y": 442,
+						"w": 44,
+						"h": 44
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:7cbee5d52b0b96a17de5a20c862e3719:a172876d6023a4319fdcc650d23db7b4:fda475f1469833f402cd7f3119be2bc2$"
+	}
+}
